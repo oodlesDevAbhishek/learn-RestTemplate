@@ -4,11 +4,28 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-
+@Document(value = "new_chat_room_details")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Data {
+	@Id
+	private int id;
+	private String chatRoomId;
+	private String chatRoomName;
+	private String chatRoomImageLink;
+	private String roomAccessKey;
+	private int totalMembers;
+	private List<Members> members;
+	private Map<String, Object> lastMessageDetails;
+	private long unreadCount;
+	private LocalDateTime lastConversation;
+	private LocalDateTime creationDate;
+	private String chatRoomType;
+	private boolean favorite;
+
 	public Data(String chatRoomId, String chatRoomName, String chatRoomImageLink, String roomAccessKey,
 			int totalMembers, List<Members> members, Map<String, Object> lastMessageDetails, long unreadCount,
 			LocalDateTime lastConversation, LocalDateTime creationDate, String chatRoomType, boolean favorite) {
@@ -102,17 +119,6 @@ public class Data {
 	public void setFavorite(boolean isFavorite) {
 		this.favorite = isFavorite;
 	}
-	private String chatRoomId;
-	private String chatRoomName;
-	private String chatRoomImageLink;
-	private String roomAccessKey;
-	private int totalMembers;
-	private List<Members> members;
-	private Map<String, Object> lastMessageDetails;
-	private long unreadCount;
-	private LocalDateTime lastConversation;
-	private LocalDateTime creationDate;
-	private String chatRoomType;
-	private boolean favorite;
+	
 	
 }

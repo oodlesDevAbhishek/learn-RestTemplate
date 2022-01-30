@@ -1,11 +1,19 @@
 package oodles.io.learnRestTemplate.modle;
 
 
+import java.time.LocalDateTime;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ChatRoomResponse{
-	public ChatRoomResponse(Data data, String message, boolean isSuccess, Long timestemp) {
+	
+	private Data data;
+	private String message;
+	private boolean isSuccess;
+	private LocalDateTime timestemp;
+	
+	public ChatRoomResponse(Data data, String message, boolean isSuccess, LocalDateTime timestemp) {
 		super();
 		this.data = data;
 		this.message = message;
@@ -39,15 +47,12 @@ public class ChatRoomResponse{
 	public void setSuccess(boolean isSuccess) {
 		this.isSuccess = isSuccess;
 	}
-	public Long getTimestemp() {
+	public LocalDateTime getTimestemp() {
 		return timestemp;
 	}
-	public void setTimestemp(Long timestemp) {
+	public void setTimestemp(LocalDateTime timestemp) {
 		this.timestemp = timestemp;
 	}
-	private Data data;
-	private String message;
-	private boolean isSuccess;
-	private Long timestemp;
+
 
 }
